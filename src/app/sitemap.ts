@@ -1,17 +1,15 @@
- const pages = [
-    "",
-    "/about",
-    "/services",
-    "/facility",
-    "/products",
-    "/blog",
-    "/events",
-    "/contact",
-  ];
 
-  return pages.map((page) => ({
-    url: `${baseUrl}${page}`,
-    changeFrequency: "monthly",
-    priority: page === "" ? 1 : 0.7,
-  }));
+import type { MetadataRoute } from "next";
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  return [
+    { url: "https://www.advancedsportsmacomb.com/" },
+    { url: "https://www.advancedsportsmacomb.com/about" },
+    { url: "https://www.advancedsportsmacomb.com/services" },
+    { url: "https://www.advancedsportsmacomb.com/facility" },
+    { url: "https://www.advancedsportsmacomb.com/products" },
+    { url: "https://www.advancedsportsmacomb.com/blog" },
+    { url: "https://www.advancedsportsmacomb.com/events" },
+    { url: "https://www.advancedsportsmacomb.com/contact" },
+  ];
 }
