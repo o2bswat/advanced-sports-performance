@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* SC 2.4.7 — Focus Visible: ensure all keyboard-focusable elements show a visible focus ring */
+:focus-visible {
+  outline: 2px solid #5A8C8F;
+  outline-offset: 2px;
+}
