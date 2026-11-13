@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Script from "next/script";
+import AnalyticsConsent from "@/components/AnalyticsConsent";
 
 export const metadata: Metadata = {
-  title: "Athletic Training Shelby Township MI | Advanced Sports Performance",
-  description: "Advanced Sports Performance is Macomb County's hometown athletic training facility for all athletes. Sports massage, corrective exercise, speed & agility, and facility rental in Shelby Township, MI.",
+  title: "Sports Training & Massage in Shelby Township | ASP",
+  description: "Athletic training, sports massage, movement assessment, and facility rental in Shelby Township, MI. By appointment, daily 8 AM–10 PM. Book online.",
+  openGraph: { type: "website", siteName: "Advanced Sports Performance", images: [{ url: "/social-preview.jpg", width: 1200, height: 630, alt: "Advanced Sports Performance" }] },
+  twitter: { card: "summary_large_image", images: ["/social-preview.jpg"] },
   metadataBase: new URL("https://www.advancedsportsmacomb.com"),
 };
 
@@ -20,18 +22,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* SC 2.4.1 — Bypass Blocks: skip navigation link for keyboard/screen reader users */}
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-[9999] focus:bg-[#456B6D] focus:text-white focus:font-semibold focus:px-6 focus:py-3 focus:outline-none"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-0 focus:left-0 focus:z-[9999] focus:bg-[#456B6D] focus:text-white focus:font-semibold focus:px-6 focus:py-3 focus:outline-none"
         >
           Skip to main content
         </a>
         {children}
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-DCW653F1J7" strategy="afterInteractive" />
-        <Script id="asp-google-analytics" strategy="afterInteractive">{`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag("js", new Date());
-          gtag("config", "G-DCW653F1J7");
-        `}</Script>
+        <AnalyticsConsent />
       </body>
     </html>
   );

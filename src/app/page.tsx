@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import HomeClient from "./HomeClient";
 
 export const metadata: Metadata = {
-  title: "Athletic Training Shelby Township MI | Advanced Sports Performance",
-  description: "Advanced Sports Performance is Macomb County's hometown athletic training facility for all athletes. Sports massage, corrective exercise, speed & agility, and team training for all athletes in Shelby Township, MI.",
+  title: "Sports Training & Massage in Shelby Township | ASP",
+  description: "Athletic training, sports massage, movement assessment, and facility rental in Shelby Township, MI. By appointment, daily 8 AM–10 PM. Book online.",
   alternates: { canonical: "https://www.advancedsportsmacomb.com" },
 };
 

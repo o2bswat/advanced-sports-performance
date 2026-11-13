@@ -1,14 +1,13 @@
-
 {
   "redirects": [
     {
       "source": "/brigids-flame",
-      "destination": "https://brigidsflamehealingarts.com",
+      "destination": "https://www.brigidsflamehealingarts.com",
       "permanent": true
     },
     {
       "source": "/brigids-flame/:path*",
-      "destination": "https://brigidsflamehealingarts.com/:path*",
+      "destination": "https://www.brigidsflamehealingarts.com/:path*",
       "permanent": true
     }
   ]

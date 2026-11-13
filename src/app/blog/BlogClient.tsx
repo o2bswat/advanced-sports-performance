@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Navbar from "@/components/Navbar";
 import { useState } from "react";
 
 const NAV_LINKS = [
@@ -11,37 +12,6 @@ const NAV_LINKS = [
   { href: "/contact", label: "Contact" },
 ];
 
-function Navbar() {
-  const [open, setOpen] = useState(false);
-  return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-black border-b border-[#88898B]/20">
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
-        <Link href="/" className="flex items-center gap-3">
-          <img src="/images/Wordpress.png" alt="Advanced Sports Performance" className="h-10 w-auto" />
-        </Link>
-        <nav className="hidden md:flex items-center gap-8">
-          {NAV_LINKS.map((l) => (
-            <Link key={l.href} href={l.href} className="text-[#88898B] hover:text-white text-sm font-medium tracking-wide uppercase transition-colors">{l.label}</Link>
-          ))}
-          <a href="https://aspmacomb.simplybook.me" target="_blank" rel="noopener noreferrer" className="bg-[#456B6D] hover:bg-[#3a5a5c] text-white text-sm font-semibold px-5 py-2.5 tracking-wide uppercase transition-colors">Book Now</a>
-        </nav>
-        <button className="md:hidden text-white" onClick={() => setOpen(!open)} aria-label="Toggle menu" aria-expanded={open}>
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            {open ? <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /> : <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />}
-          </svg>
-        </button>
-      </div>
-      {open && (
-        <div className="md:hidden bg-black border-t border-[#88898B]/20 px-6 py-4 flex flex-col gap-4">
-          {NAV_LINKS.map((l) => (
-            <Link key={l.href} href={l.href} className="text-[#88898B] hover:text-white text-sm font-medium tracking-wide uppercase" onClick={() => setOpen(false)}>{l.label}</Link>
-          ))}
-          <a href="https://aspmacomb.simplybook.me" target="_blank" rel="noopener noreferrer" className="bg-[#456B6D] text-white text-sm font-semibold px-5 py-2.5 tracking-wide uppercase text-center">Book Now</a>
-        </div>
-      )}
-    </header>
-  );
-}
 
 // ─── ADD POSTS HERE ───────────────────────────────────────────────────────────
 // Each post: title, date, category, excerpt, image (optional)
@@ -76,16 +46,16 @@ export default function BlogClient() {
   return (
     <>
       <Navbar />
-      <main id="main-content" className="pt-16 bg-black min-h-screen">
+      <main id="main-content" tabIndex={-1} className="pt-16 bg-black min-h-screen">
 
         {/* Header */}
         <section className="py-20 border-b border-[#88898B]/10">
           <div className="max-w-7xl mx-auto px-6">
             <p className="text-white text-base font-bold uppercase tracking-[0.25em] mb-2">Advanced Sports Performance</p>
             {/* SC 1.4.3 — #5A8C8F on black = ~6:1, passes AA for normal text */}
-            <p className="text-[#5A8C8F] text-sm font-semibold uppercase tracking-[0.2em] mb-3">Tips, News & More</p>
+            <p className="text-[#80b5b8] text-sm font-semibold uppercase tracking-[0.2em] mb-3">Tips, News & More</p>
             <h1 className="text-white text-5xl md:text-6xl font-bold mb-6">Blog</h1>
-            <p className="text-[#88898B] text-xl max-w-2xl leading-relaxed">Training tips, recovery insights, announcements, and specials — from the team at Advanced Sports Performance.</p>
+            <p className="text-[#b8b9bb] text-xl max-w-2xl leading-relaxed">Training tips, recovery insights, announcements, and specials — from the team at Advanced Sports Performance.</p>
           </div>
         </section>
 
@@ -95,7 +65,7 @@ export default function BlogClient() {
             <div className="max-w-7xl mx-auto px-6 flex flex-wrap gap-3">
               <button
                 onClick={() => setActiveCategory(null)}
-                className={`text-xs font-semibold uppercase tracking-wider px-4 py-2 border transition-colors ${!activeCategory ? "border-[#456B6D] text-white bg-[#456B6D]/20" : "border-[#88898B]/30 text-[#88898B] hover:border-white hover:text-white"}`}
+                className={`text-xs font-semibold uppercase tracking-wider px-4 py-2 border transition-colors ${!activeCategory ? "border-[#456B6D] text-white bg-[#456B6D]/20" : "border-[#88898B]/30 text-[#b8b9bb] hover:border-white hover:text-white"}`}
               >
                 All
               </button>
@@ -103,7 +73,7 @@ export default function BlogClient() {
                 <button
                   key={c}
                   onClick={() => setActiveCategory(c === activeCategory ? null : c)}
-                  className={`text-xs font-semibold uppercase tracking-wider px-4 py-2 border transition-colors ${activeCategory === c ? "border-[#456B6D] text-white bg-[#456B6D]/20" : "border-[#88898B]/30 text-[#88898B] hover:border-white hover:text-white"}`}
+                  className={`text-xs font-semibold uppercase tracking-wider px-4 py-2 border transition-colors ${activeCategory === c ? "border-[#456B6D] text-white bg-[#456B6D]/20" : "border-[#88898B]/30 text-[#b8b9bb] hover:border-white hover:text-white"}`}
                 >
                   {c}
                 </button>
@@ -118,7 +88,7 @@ export default function BlogClient() {
             <div className="max-w-7xl mx-auto px-6 text-center">
               <p className="text-[#456B6D] text-4xl mb-6" aria-hidden="true">✦</p>
               <h2 className="text-white text-2xl font-bold mb-4">Content Coming Soon</h2>
-              <p className="text-[#88898B] text-base max-w-md mx-auto leading-relaxed mb-10">We're working on training tips, recovery guides, and updates from the facility. Check back soon — or reach out to stay in the loop.</p>
+              <p className="text-[#b8b9bb] text-base max-w-md mx-auto leading-relaxed mb-10">We're working on training tips, recovery guides, and updates from the facility. Check back soon — or reach out to stay in the loop.</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link href="/services" className="bg-[#456B6D] hover:bg-[#3a5a5c] text-white font-semibold px-8 py-4 uppercase tracking-wider transition-colors text-sm text-center">View Our Services</Link>
               </div>
@@ -136,12 +106,12 @@ export default function BlogClient() {
                   )}
                   <div className="p-6">
                     <div className="flex items-center gap-3 mb-3">
-                      <span className="text-[#5A8C8F] text-xs font-semibold uppercase tracking-wider">{post.category}</span>
-                      <span className="text-[#88898B]/40 text-xs" aria-hidden="true">·</span>
-                      <span className="text-[#88898B] text-xs">{post.date}</span>
+                      <span className="text-[#80b5b8] text-xs font-semibold uppercase tracking-wider">{post.category}</span>
+                      <span className="text-[#b8b9bb]/40 text-xs" aria-hidden="true">·</span>
+                      <span className="text-[#b8b9bb] text-xs">{post.date}</span>
                     </div>
                     <h3 className="text-white text-lg font-bold mb-3 leading-snug">{post.title}</h3>
-                    <p className="text-[#88898B] text-sm leading-relaxed">{post.excerpt}</p>
+                    <p className="text-[#b8b9bb] text-sm leading-relaxed">{post.excerpt}</p>
                   </div>
                 </div>
               ))}
@@ -164,10 +134,11 @@ export default function BlogClient() {
 
         <footer className="bg-black border-t border-[#88898B]/20 py-8">
           <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-[#88898B] text-xs">© 2026 Advanced Sports Performance LLC. All rights reserved.</p>
-            <Link href="/" className="text-[#88898B] hover:text-white text-xs transition-colors">← Back to Home</Link>
+            <p className="text-[#b8b9bb] text-xs">© 2026 Advanced Sports Performance LLC. All rights reserved.</p>
+            <Link href="/" className="text-[#b8b9bb] hover:text-white text-xs transition-colors">← Back to Home</Link>
           </div>
-          <div className="max-w-7xl mx-auto px-6 mt-4 text-center"><Link href="/privacy" className="text-[#88898B] hover:text-white text-xs underline">Privacy Policy</Link></div>\n        </footer>
+          <div className="max-w-7xl mx-auto px-6 mt-4 text-center"><Link href="/privacy" className="text-[#b8b9bb] hover:text-white text-xs underline">Privacy Policy</Link></div>
+        </footer>
       </main>
     </>
   );

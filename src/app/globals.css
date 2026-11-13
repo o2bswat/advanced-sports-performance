@@ -2,8 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-/* SC 2.4.7 — Focus Visible: ensure all keyboard-focusable elements show a visible focus ring */
-:focus-visible {
-  outline: 2px solid #5A8C8F;
-  outline-offset: 2px;
-}
+html { scroll-padding-top: 5rem; }
+body { background: #000; color: #fff; }
+:focus-visible { outline: 3px solid #fff !important; outline-offset: 4px; box-shadow: 0 0 0 6px #111; }
+[id] { scroll-margin-top: 5rem; }
+main:focus { outline: none; }
+a, h1, h2, h3, p { overflow-wrap: anywhere; }
+input:not([type="checkbox"]), select, textarea { font-size: 1rem !important; }
+input[type="checkbox"] { min-width: 24px; min-height: 24px; flex-shrink: 0; }
+textarea { resize: vertical !important; }
+button, summary, .site-header a, footer a { min-height: 44px; }
+footer a { display: inline-flex; align-items: center; }
+.mobile-navigation { max-height: calc(100dvh - 4rem); overflow-y: auto; }
+.mobile-navigation[hidden] { display: none; }
+.site-header a[aria-current="page"] { text-decoration: underline; text-underline-offset: 6px; }
+.text-xs { font-size: .875rem; line-height: 1.5; }
+@media (max-width: 480px) { h1 { font-size: clamp(2rem, 10vw, 3rem) !important; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+
+.booking-button { background: #456B6D; color: white; }
+.booking-button:hover { filter: brightness(1.1); }
