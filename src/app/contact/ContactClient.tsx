@@ -59,7 +59,7 @@ function ContactForm() {
     const body = encodeURIComponent(
       `Name: ${formData.name}\\nEmail: ${formData.email}\\nPhone: ${formData.phone}\\n\\n${formData.message}`
     );
-    window.location.href = `mailto:info@advancedsportsmacomb.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:advancedsportsmacomb@gmail.com?subject=${subject}&body=${body}`;
 
   };
 
@@ -207,7 +207,7 @@ export default function ContactClient() {
                 </div>
                 <div>
                   <p className="text-[#5A8C8F] text-xs font-semibold uppercase tracking-widest mb-3">Email</p>
-                  <a href="mailto:info@advancedsportsmacomb.com" className="text-white text-sm hover:text-[#5A8C8F] transition-colors">info@advancedsportsmacomb.com</a>
+                  <a href="mailto:advancedsportsmacomb@gmail.com" className="text-white text-sm hover:text-[#5A8C8F] transition-colors">advancedsportsmacomb@gmail.com</a>
                 </div>
                 <div>
                   <p className="text-[#5A8C8F] text-xs font-semibold uppercase tracking-widest mb-3">Hours</p>
@@ -241,7 +241,7 @@ export default function ContactClient() {
             <p className="text-[#88898B] text-xs">© 2026 Advanced Sports Performance LLC. All rights reserved.</p>
             <Link href="/" className="text-[#88898B] hover:text-white text-xs transition-colors">← Back to Home</Link>
           </div>
-        </footer>
+          <div className="max-w-7xl mx-auto px-6 mt-4 text-center"><Link href="/privacy" className="text-[#88898B] hover:text-white text-xs underline">Privacy Policy</Link></div>\n        </footer>
       </main>
     </>
   );
