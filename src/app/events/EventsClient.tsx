@@ -61,11 +61,11 @@ const EVENTS: {
   url?: string;
 }[] = [
   {
-    title: "Wilson, Evoshield & Louisville Slugger Demo Day",
+    title: "Baseball & Softball Demo Day — Wilson, EvoShield & Louisville Slugger",
     date: "November 21, 2026",
     time: "3:00 PM – 6:00 PM",
     type: "Equipment Demo • Open to the Public",
-    description: "Join us at Advanced Sports Performance for a hands-on equipment demo with Tyler, our Wilson, Evoshield and Louisville Slugger representative. Try out the latest bats, catcher's gear and other equipment, ask questions, and shop exclusive event-day discounts. Discount amounts will be announced at the event. Everyone is welcome!",
+    description: "Join us at Advanced Sports Performance for a hands-on equipment demo with Tyler, our Wilson, Evoshield and Louisville Slugger representative. Explore baseball and softball equipment, with bats, catcher\'s gear and more expected. Try available gear, ask questions, and shop exclusive event-day discounts. Equipment selection and discount amounts will be confirmed at the event. Everyone is welcome!",
   },
   // ── EXAMPLE — remove this and add your real events ──
   // {
