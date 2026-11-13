@@ -10,7 +10,7 @@ export async function POST(request: Request) {
         [name, email, phone, subject, message].some((v) => typeof v === "string" && v.length > 5000)) {
       return NextResponse.json({ error: "Invalid form data" }, { status: 400 });
     }
-    const apiKey = process.env.ASP_CONTACT_FORM;
+    const apiKey = process.env.ASP_Contact_Form;
     if (!apiKey) {
       console.error("ASP contact: missing API key");
       return NextResponse.json({ error: "Email unavailable" }, { status: 503 });
