@@ -166,7 +166,7 @@ function ContactForm() {
 
       <label className="flex items-start gap-3 text-[#D1D1D1] text-sm leading-relaxed cursor-pointer">
         <input type="checkbox" required checked={professionalAcknowledged} onChange={e => setProfessionalAcknowledged(e.target.checked)} className="mt-1 h-4 w-4 shrink-0 accent-[#456B6D]" />
-        <span>I understand that Advanced Sports Performance provides professional, therapeutic sports massage and athletic services only. Sexual requests, inappropriate conduct, or harassment are not tolerated and will result in refusal or termination of service. *</span>
+        <span>I understand that Advanced Sports Performance provides professional, therapeutic sports massage and athletic services only. Inappropriate requests or conduct, including harassment, are not tolerated and will result in refusal or termination of service. *</span>
       </label>
 
       <button type="submit" disabled={status === "sending" || !professionalAcknowledged} className="w-full bg-[#456B6D] hover:bg-[#3a5a5c] disabled:opacity-50 text-white font-semibold py-4 uppercase tracking-wider text-sm transition-colors">
