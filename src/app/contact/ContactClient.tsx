@@ -53,14 +53,25 @@ function ContactForm() {
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", subject: "general", message: "" });
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
+  const [website, setWebsite] = useState("");
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`ASP website inquiry: ${formData.subject}`);
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\\nEmail: ${formData.email}\\nPhone: ${formData.phone}\\n\\n${formData.message}`
-    );
-    window.location.href = `mailto:advancedsportsmacomb@gmail.com?subject=${subject}&body=${body}`;
-
+    if (!formData.name.trim() || !formData.email.includes("@") || !formData.phone.trim() || !formData.message.trim()) {
+      setStatus("error");
+      return;
+    }
+    setStatus("sending");
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...formData, website }),
+      });
+      if (!response.ok) throw new Error("Could not send");
+      setStatus("sent");
+    } catch {
+      setStatus("error");
+    }
   };
 
   if (status === "sent") {
@@ -74,7 +85,7 @@ function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5" noValidate>
+    <form onSubmit={handleSubmit} className="space-y-5" noValidate>\n      <div className="absolute -left-[9999px]" aria-hidden="true"><label htmlFor="asp-website">Website</label><input id="asp-website" tabIndex={-1} autoComplete="off" value={website} onChange={e => setWebsite(e.target.value)} /></div>
       {/* SC 3.3.2 — required field explanation */}
       <p className="text-[#88898B] text-xs mb-5">Fields marked * are required.</p>
 
