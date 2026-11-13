@@ -54,9 +54,10 @@ function ContactForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
   const [website, setWebsite] = useState("");
+  const [professionalAcknowledged, setProfessionalAcknowledged] = useState(false);
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name.trim() || !formData.email.includes("@") || !formData.phone.trim() || !formData.message.trim()) {
+    if (!formData.name.trim() || !formData.email.includes("@") || !formData.phone.trim() || !formData.message.trim() || !professionalAcknowledged) {
       setStatus("error");
       return;
     }
@@ -65,7 +66,7 @@ function ContactForm() {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...formData, website }),
+        body: JSON.stringify({ ...formData, website, professionalAcknowledged }),
       });
       if (!response.ok) throw new Error("Could not send");
       setStatus("sent");
@@ -163,8 +164,13 @@ function ContactForm() {
         />
       </div>
 
-      <button type="submit" className="w-full bg-[#456B6D] hover:bg-[#3a5a5c] disabled:opacity-50 text-white font-semibold py-4 uppercase tracking-wider text-sm transition-colors">
-        {status === "sending" ? "Sending..." : "Open Email to Send"}
+      <label className="flex items-start gap-3 text-[#D1D1D1] text-sm leading-relaxed cursor-pointer">
+        <input type="checkbox" required checked={professionalAcknowledged} onChange={e => setProfessionalAcknowledged(e.target.checked)} className="mt-1 h-4 w-4 shrink-0 accent-[#456B6D]" />
+        <span>I understand that Advanced Sports Performance provides professional, therapeutic sports massage and athletic services only. Sexual requests, inappropriate conduct, or harassment are not tolerated and will result in refusal or termination of service. *</span>
+      </label>
+
+      <button type="submit" disabled={status === "sending" || !professionalAcknowledged} className="w-full bg-[#456B6D] hover:bg-[#3a5a5c] disabled:opacity-50 text-white font-semibold py-4 uppercase tracking-wider text-sm transition-colors">
+        {status === "sending" ? "Sending..." : "Send Message"}
       </button>
       {status === "error" && <p className="text-red-400 text-sm text-center" role="alert">Something went wrong. Please call us at 586-942-2000.</p>}
     </form>
