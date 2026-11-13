@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Athletic Training Shelby Township MI | Advanced Sports Performance",
@@ -24,6 +25,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Skip to main content
         </a>
         {children}
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-DCW653F1J7" strategy="afterInteractive" />
+        <Script id="asp-google-analytics" strategy="afterInteractive">{`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag("js", new Date());
+          gtag("config", "G-DCW653F1J7");
+        `}</Script>
       </body>
     </html>
   );
