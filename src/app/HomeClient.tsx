@@ -101,7 +101,7 @@ function Footer() {
             <li>47959 Van Dyke Ave.</li>
             <li>Shelby Township, MI 48317</li>
             <li className="pt-1"><a href="tel:5869422000" className="hover:text-white transition-colors">586-942-2000</a></li>
-            <li><a href="mailto:info@advancedsportsmacomb.com" className="hover:text-white transition-colors">info@advancedsportsmacomb.com</a></li>
+            <li><a href="mailto:advancedsportsmacomb@gmail.com" className="hover:text-white transition-colors">advancedsportsmacomb@gmail.com</a></li>
             <li className="pt-1">Mon–Sun: 8 AM – 10 PM</li>
           </ul>
         </div>
@@ -113,7 +113,7 @@ function Footer() {
           <a href="https://www.instagram.com/advancedsportmacomb" target="_blank" rel="noopener noreferrer" className="text-[#88898B] hover:text-white text-xs transition-colors">Instagram</a>
         </div>
       </div>
-    </footer>
+      <div className="max-w-7xl mx-auto px-6 mt-6"><Link href="/privacy" className="text-[#88898B] hover:text-white text-xs underline">Privacy Policy</Link></div>\n    </footer>
   );
 }
 
