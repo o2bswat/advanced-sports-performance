@@ -13,7 +13,7 @@ const jsonLd = {
   "name": "Advanced Sports Performance",
   "url": "https://www.advancedsportsmacomb.com",
   "telephone": "+15869422000",
-  "email": "info@advancedsportsmacomb.com",
+  "email": "advancedsportsmacomb@gmail.com",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "47959 Van Dyke Ave.",
