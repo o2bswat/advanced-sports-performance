@@ -185,7 +185,7 @@ export default function AboutClient() {
             <p className="text-[#88898B] text-xs">© 2026 Advanced Sports Performance LLC. All rights reserved.</p>
             <Link href="/" className="text-[#88898B] hover:text-white text-xs transition-colors">← Back to Home</Link>
           </div>
-        </footer>
+          <div className="max-w-7xl mx-auto px-6 mt-4 text-center"><Link href="/privacy" className="text-[#88898B] hover:text-white text-xs underline">Privacy Policy</Link></div>\n        </footer>
       </main>
     </>
   );
