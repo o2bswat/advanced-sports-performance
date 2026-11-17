@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import AnalyticsConsent from "@/components/AnalyticsConsent";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: "Sports Training & Massage in Shelby Township | ASP",
@@ -28,6 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </a>
         {children}
         <AnalyticsConsent />
+        <Analytics />
       </body>
     </html>
   );
