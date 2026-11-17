@@ -9,6 +9,11 @@
       "source": "/brigids-flame/:path*",
       "destination": "https://www.brigidsflamehealingarts.com/:path*",
       "permanent": true
+    },
+    {
+      "source": "/our-services",
+      "destination": "/services",
+      "permanent": true
     }
   ]
 }
